@@ -8,7 +8,7 @@ var User = require('../models/user');
 var authenticate = require('../authenticate');
 
 router.use(bodyParser.json());
-
+const cors = require('./cors');
 router.options('*', cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 
 /* GET users listing. */
