@@ -25,6 +25,7 @@ const connect = mongoose.connect(url);
 
 const uploadRouter = require('./routes/uploadRouter');
 
+const favoriteRouter = require('./routes/favoriteRouter');
 
 connect.then((db) => {
     console.log("Connected correctly to server");
@@ -124,7 +125,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/dishes', dishRouter);
 app.use('/leaders', leaderRouter);
 app.use('/promotions', promoRouter);
-app.use('/imageUpload',uploadRouter);
+app.use('/imageUpload', uploadRouter);
+app.use('/favorites', favoriteRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

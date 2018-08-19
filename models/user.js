@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var passportLocalMongoose = require('passport-local-mongoose');
+var passportLocalMongoose = require('passport-local-mongoose');//automatically adds username and password(hashcode+salt) in the schema
 
 var User = new Schema({
     firstname: {
@@ -15,7 +15,8 @@ var User = new Schema({
     admin: {
         type: Boolean,
         default: false
-    }
+    },
+    facebookId: String
 });
 
 User.plugin(passportLocalMongoose);
